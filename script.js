@@ -10,9 +10,8 @@ Data structure for a film:
 
 
 // TODO: Implement the following functions
-function addFilm() {
-    
-}
+
+function addFilm() {}
 function removeFilm() {}
 function clearFilms() {}
 
