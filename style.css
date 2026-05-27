@@ -51,6 +51,7 @@ h1 {
     background: linear-gradient(90deg, #a78bfa, #f472b6, #60a5fa, #facc15);
     background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text; /* include standard property for compatibility */
     -webkit-text-fill-color: transparent;
     text-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
     margin-top: 80px;
@@ -242,5 +243,111 @@ h1 {
     .nav-link {
         padding: 10px 16px !important;
         font-size: 1rem;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+body {
+    background: linear-gradient(135deg, #0f0a1f 0%, #1a1433 40%, #2a1b4a 100%);
+    color: #e0e0ff;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+/* Nav comune */
+.nav {
+    background: rgba(20, 15, 50, 0.95) !important;
+    backdrop-filter: blur(15px);
+    padding: 20px 0 !important;
+    border-bottom: 3px solid rgba(167, 139, 246, 0.6);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+}
+
+.nav-link {
+    color: #c4c4ff !important;
+    font-weight: 600;
+    padding: 12px 28px !important;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.nav-link:hover {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899) !important;
+    color: white !important;
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* Titolo */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(90deg, #a78bfa, #f472b6, #60a5fa, #fbbf24);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    margin: 60px 0 50px;
+}
+
+/* Card Principale */
+.main-card {
+    background: linear-gradient(145deg, #2a1f4a, #1e1438);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 25px 70px rgba(139, 92, 246, 0.5);
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+/* Form */
+.form-control, .form-select {
+    background-color: #1e1438;
+    border: 2px solid #6b46c1;
+    color: #e0e0ff;
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #c4b5fd;
+    box-shadow: 0 0 0 0.5rem rgba(167, 139, 246, 0.25);
+    background-color: #2a1f4a;
+}
+
+/* Bottone spettacolare */
+.btn-add {
+    background: linear-gradient(45deg, #a78bfa, #ec4899);
+    border: none;
+    padding: 16px 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.6);
+    transition: all 0.4s;
+}
+
+.btn-add:hover {
+    transform: translateY(-6px) scale(1.08);
+    box-shadow: 0 20px 45px rgba(236, 72, 153, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.6rem;
+    }
+    .main-card {
+        margin: 0 15px;
     }
 }
