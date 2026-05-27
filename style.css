@@ -167,3 +167,80 @@ h1:contains("Film") {
         font-size: 0.9rem;
     }
 }
+
+/* Titolo principale */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(90deg, #a78bfa, #f472b6, #60a5fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Bottone per chiedere suggerimenti */
+.btn-ask {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    color: white;
+    font-weight: 600;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: all 0.4s;
+}
+
+.btn-ask:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.6);
+}
+
+/* Card dei suggerimenti */
+.suggestion-card {
+    background: linear-gradient(145deg, #2a1f4a, #1e1438);
+    border: 2px solid rgba(167, 139, 246, 0.3);
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.suggestion-card:hover {
+    transform: translateY(-12px);
+    border-color: #c4b5fd;
+    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.5);
+}
+
+.suggestion-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #c4b5fd;
+    margin-bottom: 15px;
+}
+
+.suggestion-card p {
+    color: #b3b3e0;
+    line-height: 1.6;
+}
+
+/* Loading / messaggio */
+#loading, #error {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 40px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.2rem;
+    }
+    
+    .nav-link {
+        padding: 10px 16px !important;
+        font-size: 1rem;
+    }
+}
