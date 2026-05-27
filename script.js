@@ -1,13 +1,3 @@
- /* 
-Data structure for a film:
- {
-    title,
-    duration,
-    watch_date,
-    cinema,
-}
-*/
-
 let films = [];
 
 
@@ -23,10 +13,7 @@ let elencoFilm = [];
 btn1.addEventListener("click", removeFilm);
 btn2.addEventListener("click", clearFilms);
 
-// TODO: Implement the following functions
 function addFilm() {
-    alert("hi");
-
     let titleVal = nome.value;
     let durationVal = durata.value;
     let watch_dateVal = data.value;
@@ -60,6 +47,8 @@ function clearFilms() {
     elencoFilm = [];
 }
 
+// TODO: Implement the following functions
+
 function displayFilms() {}
 function getTotalWatchTime() {}
 function getFilmsWatchedInCinema() {}
@@ -82,7 +71,7 @@ async function getAiRecommendedFilms() {
             contents: [
             {
                 parts: [
-                { text: "Leggi i seguenti dati in JSON: " + JSON.stringify(films) + " Rispondi esclusivamente in JSON (no backtick, no markdown) suggerendomi 3 nuovi film che potrei vedere in base ai dati che ti ho fornito. Il JSON che devi fornire deve avere un campo listaSuggerimenti che contiene un array di 3 oggetti dove ogni oggetto ha 2 campi: nome che contiene il nome del film e descrizione che contiene una brevissima descrizione sul perchè quel film è stata proposto"
+                { text: "Leggi i seguenti dati in JSON: " + JSON.stringify(elencoFilm) + " Rispondi esclusivamente in JSON (no backtick, no markdown) suggerendomi 3 nuovi film che potrei vedere in base ai dati che ti ho fornito. Il JSON che devi fornire deve avere un campo listaSuggerimenti che contiene un array di 3 oggetti dove ogni oggetto ha 2 campi: nome che contiene il nome del film e descrizione che contiene una brevissima descrizione sul perchè quel film è stata proposto"
  }
                 ]
             }
