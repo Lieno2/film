@@ -73,3 +73,97 @@ h1 {
         margin: 5px;
     }
 }
+
+/* Stile generale per la pagina Dati */
+body[data-page="data"] h1,
+h1:contains("Film") {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 40px 0 30px;
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form Aggiungi Film */
+.card {
+    background: rgba(42, 31, 74, 0.95);
+    border: 2px solid rgba(167, 139, 246, 0.3);
+    border-radius: 20px;
+}
+
+.form-control, .form-select {
+    background-color: #2a1f4a;
+    border: 2px solid #6b5b95;
+    color: white;
+    border-radius: 12px;
+}
+
+.form-control:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 0.3rem rgba(167, 139, 246, 0.3);
+}
+
+/* Tabella Film */
+.table {
+    background-color: #1e1438;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: linear-gradient(to right, #6b5b95, #8b5cf6);
+    color: white;
+}
+
+.table tbody tr {
+    transition: all 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #2a1f4a !important;
+    transform: scale(1.02);
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 14px;
+}
+
+/* Pulsanti */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-success { background-color: #22c55e; }
+.btn-danger  { background-color: #ef4444; }
+.btn-warning { background-color: #eab308; color: black; }
+.btn-primary { background-color: #6366f1; }
+
+/* Modals */
+.modal-content {
+    background-color: #1e1438;
+    border: 2px solid #a78bfa;
+    border-radius: 20px;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid #6b5b95;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+}
