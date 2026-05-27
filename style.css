@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+body {
+    background: linear-gradient(135deg, #0f0a1f 0%, #1a1433 50%, #2a1b4a 100%);
+    color: #e0e0ff;
+    font-family: 'Poppins', system-ui, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigazione */
+.nav {
+    background: rgba(20, 15, 50, 0.95) !important;
+    backdrop-filter: blur(15px);
+    padding: 25px 0 !important;
+    border-bottom: 3px solid rgba(167, 139, 246, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    margin-bottom: 60px;
+}
+
+.nav-link {
+    color: #c4c4ff !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 30px !important;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899) !important;
+    color: white !important;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.6);
+}
+
+.nav-link.disabled {
+    color: #8888bb !important;
+    background: none !important;
+    cursor: default;
+}
+
+/* Titolo Home */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(90deg, #a78bfa, #f472b6, #60a5fa, #facc15);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    margin-top: 80px;
+    letter-spacing: -4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4.5rem;
+    }
+    
+    .nav {
+        padding: 15px 0 !important;
+    }
+    
+    .nav-link {
+        padding: 10px 18px !important;
+        font-size: 1rem;
+        margin: 5px;
+    }
+}
