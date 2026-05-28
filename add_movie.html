@@ -27,14 +27,14 @@
         </li>
     </ul>
 
-    <form>
+    <form onsubmit="addFilm(); return false;">
         <div class="mb-3">
             <label>Nome del film</label>
             <input id="myName" type="text"  aria-describedby="emailHelp" required>
         </div>
         <div>
-            <label for="appointment-time">Durata del film</label>
-            <input id="amyDuration" type="time" name="appointment-time" required/>
+            <label for="appointment-time">Durata del film (in minuti)</label>
+            <input id="myDuration" type="number" name="appointment-time" required/>
         </div>
         <div></div>
             <label>Data di visione del film</label>
@@ -47,7 +47,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <form action="">
+    <form onsubmit="removeFilm(); return false;">
         <div>
             <label for="">Inserisci il film da rimuovere</label>
             <input type="text" name="" id="myFilm">

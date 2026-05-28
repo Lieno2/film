@@ -13,25 +13,33 @@ let elencoFilm = [];
 btn1.addEventListener("click", removeFilm);
 btn2.addEventListener("click", clearFilms);
 
+loadFilmsFromLocalStorage();
+
 function addFilm() {
-    let titleVal = nome.value;
+    let titleVal = nome.value.trim();
     let durationVal = durata.value;
     let watch_dateVal = data.value;
-    let cinemaVal = check.value;
+    let cinemaVal = check.checked; 
 
-    let film = {
-        title: titleVal,
-        duration: durationVal,
-        watch_date: watch_dateVal,
-        cinema: cinemaVal
-    };
-
-    for(let i = 0; i < elencoFilm.length; i++){
-        if(titleVal.toLowerCase() == elencoFilm[i].title){
-            alert("film giè inserito");
-        } else{
-            elencoFilm.push(film);
+    let giaPresente = false;
+    for (let i = 0; i < elencoFilm.length; i++) {
+        if (titleVal.toLowerCase() == elencoFilm[i].title.toLowerCase()) {
+            giaPresente = true;
+            break;
         }
+    }
+
+    if (giaPresente) {
+        alert("Film già inserito");
+    } else {
+        let film = {
+            title: titleVal,
+            duration: durationVal,
+            watch_date: watch_dateVal,
+            cinema: cinemaVal
+        };
+        elencoFilm.push(film); 
+        saveFilmsToLocalStorage();
     }
 }
 
@@ -41,6 +49,7 @@ function removeFilm() {
             elencoFilm.pop(i);
         }
     }
+    saveFilmsToLocalStorage();
 }
 
 function clearFilms() {
@@ -72,9 +81,18 @@ function displayFilms() {
 function getTotalWatchTime() {}
 function getFilmsWatchedInCinema() {}
 
-function saveFilmsToLocalStorage() {}
-function loadFilmsFromLocalStorage() {}
+function saveFilmsToLocalStorage() {
+    let filmsJSON = JSON.stringify(elencoFilm);
+    localStorage.setItem("films", filmsJSON);
+}
 
+function loadFilmsFromLocalStorage() {
+    let filmsJSON = localStorage.getItem("films");
+    if (filmsJSON) {
+        elencoFilm = JSON.parse(filmsJSON);
+    }
+}
+    
 async function getAiRecommendedFilms() {
 
     const MODEL = "gemini-2.5-flash";
