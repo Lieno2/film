@@ -49,7 +49,26 @@ function clearFilms() {
 
 // TODO: Implement the following functions
 
-function displayFilms() {}
+function displayFilms() {
+    let cardContainer = document.getElementById("cardContainer");
+    cardContainer.innerHTML = "";
+    
+    elencoFilm.forEach(film => {
+        let card = document.createElement("div");
+        card.className = "card mb-3";
+        card.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title"> ${film.title} </h5>
+                <p class="card-text"> Durata: ${film.duration} min </p>
+                <p class="card-text"> Data visione: ${film.watch_date} </p>
+                <p class="card-text"> Cinema: ${film.cinema} </p>
+            </div>
+        `;
+        cardContainer.appendChild(card);
+    });
+
+}
+
 function getTotalWatchTime() {}
 function getFilmsWatchedInCinema() {}
 
