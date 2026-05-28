@@ -44,9 +44,11 @@ function addFilm() {
 }
 
 function removeFilm() {
-    for(let i = 0; i < elencoFilm.length; i++){
-        if(titleVal.toLowerCase() == elencoFilm[i].title){
-            elencoFilm.pop(i);
+    let titleVal = document.getElementById("myFilm").value.trim();
+    for (let i = 0; i < elencoFilm.length; i++) {
+        if (titleVal.toLowerCase() == elencoFilm[i].title.toLowerCase()) {
+            elencoFilm.splice(i, 1); 
+            break;
         }
     }
     saveFilmsToLocalStorage();
