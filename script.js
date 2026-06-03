@@ -62,3 +62,8 @@ function updateWatchTimeModal() {
     const minuti = totale % 60;
     document.getElementById("modalTotalTime").innerHTML = ore + "h " + minuti + "m (" + totale + " min)";
 }
+
+function saveFilmsToLocalStorage() {
+    localStorage.setItem("films", JSON.stringify(filmList));
+    alert("Dati salvati in locale con successo!");
+}
