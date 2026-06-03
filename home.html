@@ -70,6 +70,40 @@
             </div>
         </section>
 
+        <section id="displayFilm" class="page min-vh-100 d-flex align-items-center">
+            <div class="container">
+                <h2 class="mb-4 text-center">La tua lista film</h2>
+                
+                <div class="mb-4 text-center">
+                    <span class="fs-5">Film Registrati: <strong id="filmCount">0</strong></span>
+                </div>
+
+                <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#watchTimeModal" onclick="updateWatchTimeModal()">WATCH TIME</button>
+                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#cinemaFreqModal" onclick="updateCinemaFreqModal()">FREQUENZA CINEMA</button>
+                    <button class="btn btn-outline-light" onclick="saveFilmsToLocalStorage()">Salva in locale</button>
+                    <button class="btn btn-outline-light" onclick="clearFilms()">Elimina tutti</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped align-middle">
+                        <thead>
+                            <tr>
+                                <th>Titolo</th>
+                                <th>Durata</th>
+                                <th>Data Visione</th>
+                                <th>Cinema</th>
+                                <th class="text-end">Azione</th>
+                            </tr>
+                        </thead>
+                        <tbody id="filmTableBody">
+                            <!-- Film rows loaded dynamically -->
+                        </tbody>
+                    </table>
+                    <div id="emptyMessage" class="text-center py-4 text-muted">Nessun film in lista.</div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
