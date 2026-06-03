@@ -67,3 +67,10 @@ function saveFilmsToLocalStorage() {
     localStorage.setItem("films", JSON.stringify(filmList));
     alert("Dati salvati in locale con successo!");
 }
+
+function loadFilmsFromLocalStorage() {
+    const datiSalvati = localStorage.getItem("films");
+    if (datiSalvati) {
+        filmList = JSON.parse(datiSalvati);
+    }
+}
