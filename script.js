@@ -52,3 +52,13 @@ function clearFilms() {
         displayFilms();
     }
 }
+
+function updateWatchTimeModal() {
+    let totale = 0;
+    for (let i = 0; i < filmList.length; i++) {
+        totale = totale + Number(filmList[i].duration);
+    }
+    const ore = Math.floor(totale / 60);
+    const minuti = totale % 60;
+    document.getElementById("modalTotalTime").innerHTML = ore + "h " + minuti + "m (" + totale + " min)";
+}
