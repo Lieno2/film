@@ -40,3 +40,8 @@ function addFilm() {
 
     displayFilms();
 }
+
+function deleteFilm(index) {
+    filmList.pop(index)
+    displayFilms();
+}
