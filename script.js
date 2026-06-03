@@ -45,3 +45,10 @@ function deleteFilm(index) {
     filmList.pop(index)
     displayFilms();
 }
+
+function clearFilms() {
+    if (confirm("Vuoi davvero eliminare tutti i film?")) {
+        filmList = [];
+        displayFilms();
+    }
+}
