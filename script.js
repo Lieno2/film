@@ -159,3 +159,33 @@ async function chiediConsigliGemini() {
         risultatiDiv.innerHTML = "<div class='alert alert-danger'>Si è verificato un errore: " + errore.message + "</div>";
     }
 }
+
+function displayFilms() {
+    const tableBody = document.getElementById("filmTableBody");
+    const filmCount = document.getElementById("filmCount");
+
+    tableBody.innerHTML = "";
+    filmCount.innerHTML = filmList.length;
+
+    const emptyMessage = document.getElementById("emptyMessage");
+    if (filmList.length === 0) {
+        emptyMessage.style.display = "block";
+    } else {
+        emptyMessage.style.display = "none";
+    }
+
+    filmList.forEach(film => {
+        const riga = document.createElement("tr");
+
+        riga.innerHTML = `
+            <td>${film.title}</td>
+            <td>${film.duration} min</td>
+            <td>${film.data}</td>
+            <td>${film.cinema ? "Sì" : "No"}</td>
+            <td class="text-end">
+                <button class="btn btn-outline-light btn-sm" onclick="deleteFilm(${i})">Elimina</button>
+            </td>
+        `;
+        tableBody.appendChild(riga);
+    });
+}
