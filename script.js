@@ -105,7 +105,8 @@ function loadFilmsFromLocalStorage() {
 
 async function chiediConsigliGemini() {
     const risultatiDiv = document.getElementById("aiResults");
-    
+
+    // Validazioni preliminari
     if (filmList.length === 0) {
         alert("Aggiungi almeno un film prima di chiedere consigli!");
         return;
@@ -118,39 +119,50 @@ async function chiediConsigliGemini() {
 
     risultatiDiv.innerHTML = "<p class='text-center text-muted'>Gemini sta elaborando i consigli...</p>";
 
-    const URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + API_KEY;
+    const ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY;
 
-    const promptText = "Leggi i seguenti dati in JSON: " + JSON.stringify(filmList) + 
-        " Rispondi esclusivamente in JSON (no backtick, no markdown) suggerendomi 3 nuovi film che potrei vedere in base ai dati che ti ho fornito. Il JSON che devi fornire deve avere un campo listaSuggerimenti che contiene un array di 3 oggetti dove ogni oggetto ha 2 campi: nome che contiene il nome del film e descrizione che contiene una brevissima descrizione sul perchè quel film è stata proposto";
+    const oggettoRichiesta = {
+        "contents": [
+            {
+                "parts": [{ "text": "" }]
+            }
+        ]
+    };
+
+    const filmListJSON = JSON.stringify(filmList);
+    const promptText = "Leggi i seguenti dati in JSON: " + filmListJSON +
+        " Rispondi esclusivamente in JSON (no backtick, no markdown) suggerendomi 3 nuovi film che potrei vedere in base ai dati che ti ho fornito." +
+        " Il JSON deve avere un campo listaSuggerimenti che contiene un array di 3 oggetti," +
+        " dove ogni oggetto ha 2 campi: nome (nome del film) e descrizione (brevissima spiegazione del perché è stato proposto).";
+
+    oggettoRichiesta.contents[0].parts[0].text = promptText;
 
     try {
-        const risposta = await fetch(URL, {
+        const risposta = await fetch(ENDPOINT, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{ text: promptText }]
-                }]
-            })
+            body: JSON.stringify(oggettoRichiesta) 
         });
 
         const dati = await risposta.json();
         let testo = dati.candidates[0].content.parts[0].text;
 
-        testo = testo.replace("```json", "");
-        testo = testo.replace("```", "");
-        testo = testo.trim();
+        testo = testo.replace("```json", "").replace("```", "").trim();
 
         const oggetto = JSON.parse(testo);
         const suggerimenti = oggetto.listaSuggerimenti;
 
         let html = "";
+
+
         suggerimenti.forEach(element => {
-            html = html + "<div class='card bg-dark text-light p-3 border-secondary'>" +
-                "<h5>" + element.nome + "</h5>" +
-                "<p class='text-muted mb-0'>" + element.descrizione + "</p>" +
+
+            
+            html += "<div class='card bg-dark text-light p-3 border-secondary'>" +
+                "<h5 style='text-decoration: underline;'>" + element.nome + "</h5>" +
+                "<p class='text-muted mb-0' style='text-align: justify; color: white'>" + element.descrizione + "</p>" +
                 "</div>";
         });
 
