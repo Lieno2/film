@@ -104,6 +104,19 @@
                 </div>
             </div>
         </section>
+        <section id="aiRecommendations" class="page min-vh-100 d-flex align-items-center">
+            <div class="container text-center">
+                <h2 class="mb-4">Consigli IA Gemini</h2>
+                <p class="mb-4 text-muted">Clicca il pulsante per ricevere 3 film consigliati in base a quelli già visti.</p>
+                <button class="btn btn-light mb-4" onclick="chiediConsigliGemini()">Chiedi a Gemini</button>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-start">
+                        <div id="aiResults" class="d-flex flex-column gap-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div class="modal fade" id="watchTimeModal" tabindex="-1" aria-hidden="true">
