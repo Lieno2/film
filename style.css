@@ -12,3 +12,40 @@ body {
 .page {
   padding: 4rem 1rem;
 }
+
+
+  background-color: #1e1e1e !important;
+  border: 1px solid #333 !important;
+}
+
+.form-control {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  color: #fff !important;
+}
+
+.form-control:focus {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+  border-color: #555 !important;
+  box-shadow: none !important;
+}
+
+.table {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #242424 !important;
+  color: #fff !important;
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+}
+
+.btn-close-white {
+  filter: invert(1) grayscale(1) brightness(2);
+}
