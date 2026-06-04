@@ -63,6 +63,32 @@ function updateWatchTimeModal() {
     document.getElementById("modalTotalTime").innerHTML = ore + "h " + minuti + "m (" + totale + " min)";
 }
 
+function updateCinemaFreqModal() {
+    const cinemaList = document.getElementById("modalCinemaList");
+    cinemaList.innerHTML = "";
+
+    let tmp = 0;
+    let listaHTML = "";
+
+    filmList.forEach(film => {
+        if (film.cinema) {
+            tmp++;
+            listaHTML = listaHTML + "<li class='list-group-item bg-transparent text-light border-secondary'>" + filmList[i].title + "</li>";
+        }
+    });
+
+    document.getElementById("modalCinemaCount").innerHTML = tmp;
+
+    if (contatore === 0) {
+        cinemaList.innerHTML = "<li class='list-group-item bg-transparent text-muted border-0'>Nessun film visto al cinema</li>";
+    } else {
+        cinemaList.innerHTML = listaHTML;
+    }
+}
+
+
+
+
 function saveFilmsToLocalStorage() {
     localStorage.setItem("films", JSON.stringify(filmList));
     alert("Dati salvati in locale con successo!");
