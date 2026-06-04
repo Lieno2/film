@@ -1,3 +1,5 @@
+const API_KEY = "YOUR-API-KEY";
+
 let filmList = [];
 
 loadFilmsFromLocalStorage();
@@ -20,7 +22,7 @@ function addFilm() {
     }
 
     filmList.forEach(element => {
-        if(element.toLowerCase() == titleVal.toLowerCase()){
+        if(element.title.toLowerCase() == titleVal.toLowerCase()){
             alert("Film già inserito");
             return;
         }
@@ -73,13 +75,13 @@ function updateCinemaFreqModal() {
     filmList.forEach(film => {
         if (film.cinema) {
             tmp++;
-            listaHTML = listaHTML + "<li class='list-group-item bg-transparent text-light border-secondary'>" + filmList[i].title + "</li>";
+            listaHTML = listaHTML + "<li class='list-group-item bg-transparent text-light border-secondary'>" + film.title + "</li>";
         }
     });
 
     document.getElementById("modalCinemaCount").innerHTML = tmp;
 
-    if (contatore === 0) {
+    if (tmp === 0) {
         cinemaList.innerHTML = "<li class='list-group-item bg-transparent text-muted border-0'>Nessun film visto al cinema</li>";
     } else {
         cinemaList.innerHTML = listaHTML;
@@ -174,18 +176,19 @@ function displayFilms() {
         emptyMessage.style.display = "none";
     }
 
-    filmList.forEach(film => {
+    for(let i = 0; i < filmList.length; i++){
+        const film = filmList[i];
         const riga = document.createElement("tr");
 
         riga.innerHTML = `
             <td>${film.title}</td>
             <td>${film.duration} min</td>
-            <td>${film.data}</td>
+            <td>${film.watch_date.split("-").reverse().join("/")}</td>
             <td>${film.cinema ? "Sì" : "No"}</td>
             <td class="text-end">
                 <button class="btn btn-outline-light btn-sm" onclick="deleteFilm(${i})">Elimina</button>
             </td>
         `;
         tableBody.appendChild(riga);
-    });
+    };
 }
